@@ -7,7 +7,7 @@ CFLAGS="-std=c11 -Wall -Wextra -Werror"
 echo "Compiling..."
 for f in buggy0.c buggy1.c buggy2.c buggy3.c buggy4.c buggy5.c; do
   echo "  -> $f"
-  $CC $CFLAGS "$f" -o "${f%.c}" || {
+  $CC $CFLAGS "$f" -o "${f%.c}" -I/opt/homebrew/include /opt/homebrew/lib/libcs50.a -lm || {
     echo ""
     echo "❌ Compile failed for $f"
     exit 1
@@ -23,3 +23,4 @@ echo "  ./buggy2"
 echo "  ./buggy3"
 echo "  ./buggy4"
 echo "  ./buggy5"
+
